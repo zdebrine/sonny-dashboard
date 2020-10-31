@@ -1,6 +1,6 @@
-import React, {useState, useEffect} from 'react';
-import Switch from '@material-ui/core/Switch';
-import { withStyles } from '@material-ui/core/styles';
+import React, { useState, useEffect } from "react";
+import Switch from "@material-ui/core/Switch";
+import { withStyles } from "@material-ui/core/styles";
 
 const LargeSwitch = withStyles((theme) => ({
   root: {
@@ -11,19 +11,19 @@ const LargeSwitch = withStyles((theme) => ({
   },
   switchBase: {
     padding: 1,
-    '&$checked': {
-      transform: 'translateX(30px)',
-      color: '#ffffff',
-      '& + $track': {
-        background: 'linear-gradient(45deg, #0098f0 30%, #00649e 90%)',
-        backgroundColor: '#0098f0',
+    "&$checked": {
+      transform: "translateX(25px)",
+      color: "#ffffff",
+      "& + $track": {
+        background: "linear-gradient(45deg, #F50057 30%, ##b80040 90%)",
+        backgroundColor: "#F50057",
         opacity: 1,
-        border: 'none',
+        border: "none",
       },
     },
-    '&$focusVisible $thumb': {
-      color: '#0098f0',
-      border: '6px solid #fff',
+    "&$focusVisible $thumb": {
+      color: "#F50057",
+      border: "6px solid #fff",
     },
   },
   thumb: {
@@ -33,8 +33,8 @@ const LargeSwitch = withStyles((theme) => ({
   track: {
     borderRadius: 80 / 2,
     border: `1px solid`,
-    borderColor: '#b9c1d6',
-    backgroundColor: '#ffffff',
+    borderColor: "#b9c1d6",
+    backgroundColor: "#ffffff",
     opacity: 1,
     /* transition: theme.transitions.create(['background-color', 'border']), */
   },
@@ -57,7 +57,7 @@ const LargeSwitch = withStyles((theme) => ({
   );
 });
 
-const DeviceSwitch = () => {
+const DeviceSwitch = (props) => {
   const [state, setState] = useState({
     checkedA: true,
     checkedB: true,
@@ -68,16 +68,21 @@ const DeviceSwitch = () => {
   };
 
   return (
-    <div>
-      <LargeSwitch
-        checked={state.checkedB}
-        onChange={handleChange}
-        color="primary"
-        name="checkedB"
-        inputProps={{ 'aria-label': 'primary checkbox' }}
-      />
+    <div className="p-5 m-5">
+      <div className="pt-5">
+        <LargeSwitch
+          checked={state.checkedB}
+          onChange={handleChange}
+          color="primary"
+          name="checkedB"
+          inputProps={{ "aria-label": "primary checkbox" }}
+        />
+      </div>
+      <div className="pt-5">
+        <h2>{props.deviceInfo.name}</h2>
+      </div>
     </div>
   );
-}
+};
 
 export default DeviceSwitch;

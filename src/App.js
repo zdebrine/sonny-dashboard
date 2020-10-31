@@ -5,6 +5,7 @@ import FloorplanParent from "./Floorplan/FloorplanParent";
 import SensorInfo from "./SensorData/SensorInfo.jsx";
 import ArtWidget from "./ArtWidget/ArtWidget.jsx";
 import Clock from './ClockWidget/Clock.jsx';
+import DeviceWidget from './DeviceWidget/DeviceWidget.jsx'
 import IconButton from "@material-ui/core/IconButton";
 import HomeOutlinedIcon from "@material-ui/icons/HomeOutlined";
 import BubbleChartIcon from "@material-ui/icons/BubbleChart";
@@ -153,7 +154,7 @@ function App() {
           <IconButton color="secondary" onClick={setWidgetView}>
             <HomeOutlinedIcon name="widgetView" style={{ fontSize: 35 }} />
           </IconButton>
-          <div>DeviceView</div>
+          <DeviceWidget />
         </section>
       ) : (
         <div>NoView</div>
