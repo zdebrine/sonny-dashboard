@@ -14,8 +14,8 @@ const ClockWidget = () => {
     },
   };
   return (
-    <Grid container direction="row">
-      <Grid item xs={2}></Grid>
+    <Grid container direction="row" className="pt-5">
+      <Grid item xs={3}></Grid>
       <Grid item xs={8} id="clock" className="p-5">
         <ThemedDigitalClock
           useDarkTheme={true}
