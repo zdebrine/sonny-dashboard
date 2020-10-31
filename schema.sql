@@ -1,0 +1,13 @@
+DROP DATABASE IF EXISTS mvpSonny;
+
+CREATE DATABASE mavSonny;
+
+USE mvpSonny;
+
+CREATE TABLE IF NOT EXISTS visits (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    beaconname VARCHAR(100)
+    visits INT
+);
+
+INSERT INTO visits (beaconname) VALUES ("208c53602be845b16c89000000000000");
