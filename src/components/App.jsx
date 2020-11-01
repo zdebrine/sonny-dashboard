@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
 import Grid from "@material-ui/core/Grid";
-import FloorplanParent from "./Floorplan/FloorplanParent";
+import FloorplanParent from "./Floorplan/FloorplanParent.jsx";
 import SensorInfo from "./SensorData/SensorInfo.jsx";
 import ArtWidget from "./ArtWidget/ArtWidget.jsx";
 import Clock from './ClockWidget/Clock.jsx';

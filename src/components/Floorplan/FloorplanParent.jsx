@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import classNames from "classnames";
 import Grid from "@material-ui/core/Grid";
 import { Button, ButtonGroup } from "reactstrap";
-import FloorplanCard from "./FloorplanCard";
+import FloorplanCard from "./FloorplanCard.jsx";
 
 const FloorplanParent = () => {
   const [isActive, setIsActive] = useState("breakdown");

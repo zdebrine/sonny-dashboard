@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Switch from "@material-ui/core/Switch";
 import { withStyles } from "@material-ui/core/styles";
+import toggleDevice from './toggleDevice.js';
+
 
 const LargeSwitch = withStyles((theme) => ({
   root: {
@@ -65,6 +67,12 @@ const DeviceSwitch = (props) => {
 
   const handleChange = (event) => {
     setState({ ...state, [event.target.name]: event.target.checked });
+    console.log(state.checkedA, state.checkedB);
+    if (state.checkedB === true) {
+      toggleDevice('turnOff');
+    } else {
+      toggleDevice('turnOn');
+    }
   };
 
   return (

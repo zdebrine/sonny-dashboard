@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Grid from "@material-ui/core/Grid";
-import BubbleChart from "./BreakdownChart";
-import MarauderChart from "./MarauderChart";
-import ClimateChart from "./ClimateChart";
+import BubbleChart from "./BreakdownChart.jsx";
+import MarauderChart from "./MarauderChart.jsx";
+import ClimateChart from "./ClimateChart.jsx";
 
 const FloorplanCard = ({ activeToggle }) => {
   return (
