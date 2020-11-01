@@ -59,6 +59,11 @@ h1 {
   color: #F50057;
 }
 
+h2 {
+  font-family: 'Roboto Mono', monospace;
+  color: #ffffff;
+}
+
 #myChart {
   background-image: url('https://i.ibb.co/kMR7DDz/house-floorplan.png');
   background-repeat: no-repeat;
@@ -67,9 +72,9 @@ h1 {
 
 
 .card {
-  background-color: #020813;
-  background-repeat: no-repeat, repeat;
+  background-color: #02060e;
   height: 100%;
+  margin-bottom: 20px;
 }
 
 .floorplan-card {
