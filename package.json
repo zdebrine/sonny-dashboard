@@ -13,6 +13,9 @@
     "chart.js": "^2.9.3",
     "child_process": "^1.0.2",
     "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "faker": "^5.1.0",
+    "pg": "^8.4.2",
     "react": "^16.14.0",
     "react-binary-clock": "^1.0.2",
     "react-dom": "^16.13.1",
@@ -25,9 +28,10 @@
   "scripts": {
     "start": "react-scripts start",
     "server": "nodemon server.js",
-    "build": "react-scripts build",
+    "build": "react-scripts build --watch",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "seed-visits": "cd location-database && node generationScript.js && psql postgres -U zak < schema.sql"
   },
   "eslintConfig": {
     "extends": "react-app"

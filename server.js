@@ -1,5 +1,6 @@
 const express = require('express');
 const { toggleDevice } = require('./helpers.js');
+const {pool} = require('./location-database/config.js')
 
 const bodyParser = require('body-parser');
 
@@ -19,6 +20,17 @@ app.post('/device', (req, res) => {
   toggleDevice(req.query.command);
   res.send()
 });
+
+app.get('/locations', (req, res) => {
+  pool.query("SELECT * FROM visits ORDER BY time DESC LIMIT 1;", (err, data) => {
+    if (err) {
+      console.log('There was an error getting the requested info', err);
+      res.send();
+    } else {
+      res.send(data);
+    }
+  })
+})
 
 app.listen(PORT, () => {
   // eslint-disable-next-line no-console

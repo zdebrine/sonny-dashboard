@@ -1,4 +1,4 @@
-import React, { useEffect, createRef } from "react";
+import React, { useEffect, createRef, useState } from "react";
 import Chart from "chart.js";
 import "../App.css";
 
@@ -6,8 +6,18 @@ import "../App.css";
 // ===== MARAUDER ======
 // =====================
 
-const MarauderChart = () => {
+const MarauderChart = (props) => {
   const chartRef = createRef();
+  const [zakPlaceId, setZakPlaceId] = useState(props.placeId);
+  const [zakHere, setZakHere] = useState(false);
+
+  useEffect(() => {
+    if (props.event === "Location Event - Enter") {
+      setZakHere(true);
+    } else {
+      setZakHere(false);
+    }
+  })
 
   useEffect(() => {
     const myChartRef = chartRef.current.getContext("2d");
