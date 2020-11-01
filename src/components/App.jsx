@@ -107,7 +107,7 @@ function App() {
       ) : /* VIEWS */
 
       view === "mapView" ? (
-        <section>
+        <section className="floorplan-card">
           <IconButton color="secondary" onClick={setWidgetView}>
             <HomeOutlinedIcon name="widgetView" style={{ fontSize: 35 }} />
           </IconButton>

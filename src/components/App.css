@@ -4,6 +4,14 @@
   text-align: center;
   background-color: #02060e;
 }
+::-webkit-scrollbar {
+  width: 0px;  /* Remove scrollbar space */
+  background: transparent;  /* Optional: just make scrollbar invisible */
+}
+/* Optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+  background: #FF0000;
+}
 
 .App-logo {
   height: 40vmin;
@@ -65,7 +73,6 @@ h2 {
 }
 
 #myChart {
-  background-image: url('https://i.ibb.co/kMR7DDz/house-floorplan.png');
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -78,7 +85,9 @@ h2 {
 }
 
 .floorplan-card {
+  background-image: url('https://i.ibb.co/kMR7DDz/house-floorplan.png');
   background-repeat: no-repeat, repeat;
+  background-size: cover;
   height: 100%;
 }
 

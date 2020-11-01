@@ -7,7 +7,7 @@ import FloorplanCard from "./FloorplanCard.jsx";
 const FloorplanParent = () => {
   const [isActive, setIsActive] = useState("breakdown");
   return (
-    <div className="floorplan-card">
+    <div>
       <div className="toggled pb-5">
         <Grid item sm={12}>
           <ButtonGroup
