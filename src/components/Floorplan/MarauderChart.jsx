@@ -10,6 +10,7 @@ const MarauderChart = (props) => {
   const chartRef = createRef();
   const [zakPlaceId, setZakPlaceId] = useState(props.placeId);
   const [zakHere, setZakHere] = useState(false);
+  const [location, setLocation] = useState([]);
 
   useEffect(() => {
     if (props.event === "Location Event - Enter") {
@@ -17,7 +18,13 @@ const MarauderChart = (props) => {
     } else {
       setZakHere(false);
     }
-  })
+  },[props.event]);
+
+  useEffect(() => {
+    if (zakPlaceId === '4385395b88eb3dc1206d000000000000' && zakHere === true) {
+      setLocation([9, 11.5]);
+    } 
+  }, [zakHere]);
 
   useEffect(() => {
     const myChartRef = chartRef.current.getContext("2d");
@@ -66,8 +73,8 @@ const MarauderChart = (props) => {
             label: "Zak",
             data: [
               {
-                x: 8.5,
-                y: 11,
+                x: location[0],
+                y: location[1],
                 r: 10,
               },
             ],
@@ -119,7 +126,7 @@ const MarauderChart = (props) => {
         },
       },
     });
-  });
+  }, [location]);
 
   return (
     <div id="myChart" className="pb-5">

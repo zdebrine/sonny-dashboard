@@ -27,7 +27,23 @@ app.get('/locations', (req, res) => {
       console.log('There was an error getting the requested info', err);
       res.send();
     } else {
-      res.send(data);
+      res.status(200).send(data);
+    }
+  })
+})
+
+app.post('/locations', (req, res) => {
+  let placeId = req.body.properties.beaconName;
+  let time = req.body.originalTimestamp;
+  let name = req.body.context.traits.name;
+  let event = req.body.event;
+  pool.query(`INSERT INTO visits (place_id, time, name, event) VALUES ('${placeId}', '${time}', '${name}', '${event}')`, (err, data) => {
+    if (err) {
+      console.log("There was an error posting the location", err);
+      res.send(err);
+    } else {
+      console.log('Location posted');
+      res.status(200).send(data);
     }
   })
 })
