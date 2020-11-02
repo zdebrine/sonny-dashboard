@@ -1,11 +1,22 @@
 import React, { useState } from "react";
 import "./App.css";
-import Grid from "@material-ui/core/Grid";
+
+// =============================================
+// ================ COMPONENTS =================
+// =============================================
+
 import FloorplanParent from "./Floorplan/FloorplanParent.jsx";
 import SensorInfo from "./SensorData/SensorInfo.jsx";
 import ArtWidget from "./ArtWidget/ArtWidget.jsx";
 import Clock from './ClockWidget/Clock.jsx';
 import DeviceWidget from './DeviceWidget/DeviceWidget.jsx'
+import Settings from './SettingsWidget/SettingsWidget.jsx'
+
+// ============================================
+// ================ STYLING ===================
+// ============================================
+
+import Grid from "@material-ui/core/Grid";
 import IconButton from "@material-ui/core/IconButton";
 import HomeOutlinedIcon from "@material-ui/icons/HomeOutlined";
 import BubbleChartIcon from "@material-ui/icons/BubbleChart";
@@ -15,8 +26,14 @@ import SettingsIcon from "@material-ui/icons/Settings";
 import SpaIcon from "@material-ui/icons/Spa";
 import AccessTimeIcon from "@material-ui/icons/AccessTime";
 
-function App() {
+const  App = () => {
   const [view, setView] = useState("widgetView");
+
+  const [artTheme, setArtTheme] = useState('retro art');
+
+  // ==========================================
+  // ========== STATE HANDLERS ================
+  // ==========================================
 
   const setWidgetView = (event) => {
     setView("widgetView");
@@ -45,6 +62,9 @@ function App() {
   const setSettingsView = () => {
     setView("settingsView");
   };
+
+  // =========================================
+  // =========================================
 
   return (
     <div className="App">
@@ -104,7 +124,11 @@ function App() {
             </Grid>
           </Grid>
         </section>
-      ) : /* VIEWS */
+      ) : 
+      
+      /* ================================================== */
+      /* =================== VIEWS ======================== */
+      /* ================================================== */
 
       view === "mapView" ? (
         <section className="floorplan-card">
@@ -117,6 +141,11 @@ function App() {
             </Grid>
           </Grid>
         </section>
+
+        /* =================== */
+        /* ====== CLOCK ====== */
+        /* =================== */
+
       ) : view === "clockView" ? (
         <section>
           <IconButton color="secondary" onClick={setWidgetView}>
@@ -124,13 +153,23 @@ function App() {
           </IconButton>
           <Clock />
         </section>
+
+        /* =================== */
+        /* ==== SETIINGS ===== */
+        /* =================== */
+
       ) : view === "settingsView" ? (
         <section>
           <IconButton color="secondary" onClick={setWidgetView}>
             <HomeOutlinedIcon name="widgetView" style={{ fontSize: 35 }} />
           </IconButton>
-          <div>SettingsView</div>
+          <Settings setArtTheme={setArtTheme}/>
         </section>
+
+        /* =================== */
+        /* ====== SENSOR ===== */
+        /* =================== */
+
       ) : view === "sensorView" ? (
         <section>
           <IconButton color="secondary" onClick={setWidgetView}>
@@ -142,13 +181,23 @@ function App() {
             </Grid>
           </Grid>
         </section>
+
+        /* =================== */
+        /* ======= ART ======= */
+        /* =================== */
+
       ) : view === "artView" ? (
         <section>
           <IconButton color="secondary" onClick={setWidgetView}>
             <HomeOutlinedIcon name="widgetView" style={{ fontSize: 35 }} />
           </IconButton>
-          <ArtWidget />
+          <ArtWidget theme={artTheme}/>
         </section>
+
+        /* =================== */
+        /* ====== DEVICE ===== */
+        /* =================== */
+
       ) : view === "deviceView" ? (
         <section>
           <IconButton color="secondary" onClick={setWidgetView}>
