@@ -76,8 +76,8 @@ const DeviceSwitch = (props) => {
   };
 
   return (
-    <div className="p-5 m-5">
-      <div className="pt-5">
+    <div className="p-2">
+      <div className="pt-2">
         <LargeSwitch
           checked={state.checkedB}
           onChange={handleChange}

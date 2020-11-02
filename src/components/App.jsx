@@ -70,13 +70,13 @@ const  App = () => {
     <div className="App">
       {view === "widgetView" ? (
         <section>
-          <div className="py-5">
+          <div className="pt-3">
             <h1>Hi Zak</h1>
           </div>
 
           {/* Clock widget */}
 
-          <Grid container direction="row" className="widgets py-5">
+          <Grid container direction="row" className="widgets py-1">
             <Grid item xs={4} className="py-5">
               <IconButton color="secondary" onClick={setClockView}>
                 <AccessTimeIcon name="clockView" style={{ fontSize: 100 }} />
@@ -131,12 +131,12 @@ const  App = () => {
       /* ================================================== */
 
       view === "mapView" ? (
-        <section className="floorplan-card">
+        <section>
           <IconButton color="secondary" onClick={setWidgetView}>
             <HomeOutlinedIcon name="widgetView" style={{ fontSize: 35 }} />
           </IconButton>
           <Grid container direction="row">
-            <Grid item xs={12} className="m-5">
+            <Grid item xs={12} className="mx-5">
               <FloorplanParent />
             </Grid>
           </Grid>

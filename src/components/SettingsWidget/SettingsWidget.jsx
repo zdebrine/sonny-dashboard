@@ -62,7 +62,7 @@ const Settings = (props) => {
 
   return (
     <Grid container direction="column">
-      <h2 className="pt-5 pb-2">Art Type</h2>
+      <h2 className="pt-1 pb-1">Art Type</h2>
       <Grid item xs={12}>
         <form className={classes.root} noValidate autoComplete="off">
           <TextField
@@ -78,9 +78,8 @@ const Settings = (props) => {
           />
         </form>
         {keyboardLayout ? 
-        <Grid container direction="row" className="py-5">
-          <Grid item md={3}></Grid>
-          <Grid item md={6}>
+        <Grid container direction="row" className="pb-3">
+          <Grid item md={12}>
             <Keyboard
               className="px-5"
               keyboardRef={(r) => (keyboard.current = r)}
@@ -89,12 +88,11 @@ const Settings = (props) => {
               onKeyPress={onKeyPress}
               />
           </Grid>
-          <Grid item md={3}></Grid>
         </Grid>
             : <div></div>
             }
-        <Button variant="contained" color="secondary" className="py-2 my-3" onClick={onSubmit}>
-          Secondary
+        <Button variant="contained" color="secondary" onClick={onSubmit}>
+          SAVE
         </Button>
       </Grid>
     </Grid>

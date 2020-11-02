@@ -28,12 +28,12 @@
     "typeface-roboto": "^1.1.13"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "server": "nodemon server.js",
+    "start:react": "react-scripts start",
+    "start": "nodemon server.js",
     "build": "react-scripts build --watch",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "seed-visits": "cd location-database && node generationScript.js && psql postgres -U zak < schema.sql"
+    "seed": "cd database && node generationScript.js && psql --host=database-1.cxdd1ksdkzia.us-west-1.rds.amazonaws.com --port=5432 --username=postgres --password --dbname=postgres < schema.sql"
   },
   "eslintConfig": {
     "extends": "react-app"

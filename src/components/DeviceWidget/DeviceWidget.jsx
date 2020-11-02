@@ -8,7 +8,7 @@ const DeviceWidget = () => {
     <Grid container direction="row">
       {devices.map(device => (
         <Grid item xs={6} key={Math.random()}>
-          <div className="mt-5 card">
+          <div className="card">
             <DeviceSwitch deviceInfo={device} />
           </div>
         </Grid>

@@ -76,7 +76,7 @@ const FloorplanParent = () => {
           </ButtonGroup>
         </Grid>
       </div>
-      <div>
+      <div className="floorplan-card">
         <FloorplanCard activeToggle={isActive} />
       </div>
     </div>

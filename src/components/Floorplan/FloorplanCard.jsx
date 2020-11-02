@@ -13,7 +13,7 @@ const FloorplanCard = ({ activeToggle }) => {
   useEffect(() => {
     (async () => {
       try {
-        const userLocation = await axios.get('http://localhost:9003/locations');
+        const userLocation = await axios.get('http://ec2-3-101-81-119.us-west-1.compute.amazonaws.com/locations');
         console.log(userLocation);
         setPlaceId(userLocation.data.rows[0].place_id);
         setEvent(userLocation.data.rows[0].event);

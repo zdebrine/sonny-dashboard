@@ -121,6 +121,7 @@ h2 {
 .widgets {
   transform: translatey(0px);
   animation: float 6s ease-in-out infinite;
+  height: 80%;
 }
 
 .artwork {
@@ -128,10 +129,17 @@ h2 {
   object-position: 100% 20%;
 
   width: 100%;
-  height: 1000px;
+  height: 75%;
 }
 
 .simple-keyboard {
+  max-width: 100%;
+  align-items: center;
+  color: #FF0000;
+  justify-content: center;
+}
+
+.themed-digital-clock {
   max-width: 100%;
   align-items: center;
   color: #FF0000;

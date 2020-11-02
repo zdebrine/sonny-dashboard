@@ -20,7 +20,7 @@ const ArtWidget = ({theme}) => {
       <img
         className="artwork"
         src={artwork}
-        alt="Retro Artwork"
+        alt="Digital Artwork"
       />
     </div>
   );

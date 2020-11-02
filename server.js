@@ -1,6 +1,6 @@
 const express = require('express');
 const { toggleDevice } = require('./helpers.js');
-const {pool} = require('./location-database/config.js')
+const {pool} = require('./database/config.js')
 
 const bodyParser = require('body-parser');
 
