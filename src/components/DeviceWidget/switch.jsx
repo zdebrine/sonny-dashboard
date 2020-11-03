@@ -6,8 +6,8 @@ import toggleDevice from './toggleDevice.js';
 
 const LargeSwitch = withStyles((theme) => ({
   root: {
-    width: 83,
-    height: 57,
+    width: 69,
+    height: 45,
     padding: 0,
     /* margin: theme.spacing(1), */
   },
@@ -29,8 +29,8 @@ const LargeSwitch = withStyles((theme) => ({
     },
   },
   thumb: {
-    width: 55,
-    height: 55,
+    width: 42,
+    height: 42,
   },
   track: {
     borderRadius: 80 / 2,

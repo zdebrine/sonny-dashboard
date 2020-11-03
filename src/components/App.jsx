@@ -70,10 +70,7 @@ const  App = () => {
     <div className="App">
       {view === "widgetView" ? (
         <section>
-          <div className="pt-3">
-            <h1>Hi Zak</h1>
-          </div>
-
+          
           {/* Clock widget */}
 
           <Grid container direction="row" className="widgets py-1">

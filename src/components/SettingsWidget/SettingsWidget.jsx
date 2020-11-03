@@ -33,8 +33,8 @@ const Settings = (props) => {
   const keyboard = useRef();
 
   const openKeyboard = () => {
-      setKeyboardLayout(true);
-  }
+    setKeyboardLayout(true);
+  };
 
   const onChange = (input) => {
     setInput(input);
@@ -58,7 +58,7 @@ const Settings = (props) => {
   const onSubmit = () => {
     props.setArtTheme(input);
     setKeyboardLayout(false);
-  }
+  };
 
   return (
     <Grid container direction="column">
@@ -77,23 +77,29 @@ const Settings = (props) => {
             }}
           />
         </form>
-        {keyboardLayout ? 
-        <Grid container direction="row" className="pb-3">
-          <Grid item md={12}>
-            <Keyboard
-              className="px-5"
-              keyboardRef={(r) => (keyboard.current = r)}
-              layoutName={layout}
-              onChange={onChange}
-              onKeyPress={onKeyPress}
+        {keyboardLayout ? (
+          <div className="col-xs-12">
+            <Grid item md={12} className="pb-3">
+              <Keyboard
+                className="px-5"
+                keyboardRef={(r) => (keyboard.current = r)}
+                layoutName={layout}
+                onChange={onChange}
+                onKeyPress={onKeyPress}
               />
-          </Grid>
-        </Grid>
-            : <div></div>
-            }
-        <Button variant="contained" color="secondary" onClick={onSubmit}>
-          SAVE
-        </Button>
+            </Grid>
+            <Button
+              variant="contained"
+              color="secondary"
+              onClick={onSubmit}
+              className="pt-2"
+            >
+              SAVE
+            </Button>
+          </div>
+        ) : (
+          <div></div>
+        )}
       </Grid>
     </Grid>
   );

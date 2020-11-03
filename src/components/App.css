@@ -136,7 +136,6 @@ h2 {
   max-width: 100%;
   align-items: center;
   color: #FF0000;
-  justify-content: center;
 }
 
 .themed-digital-clock {
@@ -599,5 +598,8 @@ fieldset[disabled]
 
 #clock {
   align-items: center;
+  background-image: url("https://i.ibb.co/SBRH3Yc/archer-and-the-danger-zone-by-arewolf-d7ip1u1-fullview.png");
+  background-position: right;
   background-color: #02060e;
+  background-repeat: no-repeat;
 }

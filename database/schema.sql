@@ -13,7 +13,7 @@ CREATE TABLE "visits"
 (
     id INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1 MINVALUE 1 MAXVALUE 999999 CACHE 1 ),
     place_id TEXT COLLATE pg_catalog."default",
-    time DATE,
+    time TIMESTAMP,
     name text COLLATE pg_catalog."default",
     user_id INTEGER,
     event text,
