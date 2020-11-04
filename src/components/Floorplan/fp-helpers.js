@@ -5,7 +5,6 @@ const fpHelpers = {
     axios
       .get("/locations")
       .then((response) => {
-        console.log(response);
         if (response.data.rows[0].event === "Location Event - Enter") {
           return {
             place_id: response.data.rows[0].place_id,
@@ -20,8 +19,10 @@ const fpHelpers = {
       })
       .catch((err) => console.error(err));
   },
+
+  //===========================================================
+
   convertSensor: (dataArr) => {
-    console.log("data array in helper", dataArr);
     let array = [];
     let shade;
     array.push({
@@ -39,7 +40,6 @@ const fpHelpers = {
     for (let i = 0; i < dataArr.length; i++) {
       let coordinates = [];
       let temp = dataArr[i].temp;
-      console.log("temp in loop", temp);
 
       // SET COORDINATES
 
@@ -86,6 +86,73 @@ const fpHelpers = {
       backgroundColor: "#1d8cf8",
       hoverBackgroundColor: "#1d8cf8",
     });
+    return array;
+  },
+
+  //===========================================================//
+
+  findAverages: (metadata) => {
+    let array = [];
+    var officeRating = 50;
+    var bedroomRating = 50;
+
+    for (let i = 0; i < metadata.length; i++) {
+      if (metadata[i].place_id === "208c53602be845b16c89000000000000") {
+        bedroomRating += 2;
+        officeRating -= 2;
+      } else if (metadata[i].place_id === "4385395b88eb3dc1206d000000000000") {
+        officeRating += 2;
+        bedroomRating -= 2;
+      }
+    }
+    array.push(
+      {
+        label: "Start",
+        data: [
+          {
+            x: 0,
+            y: 12,
+            r: 0,
+          },
+        ],
+      },
+      {
+        label: "Office",
+        data: [
+          {
+            x: 8.5,
+            y: 9.5,
+            r: officeRating,
+          },
+        ],
+        backgroundColor: "rgba(255, 99, 132, 0.7)",
+        hoverBackgroundColor: "#ff6384",
+      },
+      {
+        label: "Bedroom",
+        data: [
+          {
+            x: 8.5,
+            y: 3,
+            r: bedroomRating,
+          },
+        ],
+        backgroundColor: "rgba(255, 99, 132, 0.7)",
+        hoverBackgroundColor: "#ff6384",
+      },
+      {
+        label: "End",
+        data: [
+          {
+            x: 10,
+            y: 0,
+            r: 0,
+          },
+        ],
+        backgroundColor: "#1d8cf8",
+        hoverBackgroundColor: "#1d8cf8",
+      }
+    );
     return array;
   },
 };

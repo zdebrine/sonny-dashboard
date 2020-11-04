@@ -1,85 +1,33 @@
-import React, { useEffect, createRef } from "react";
+import React, { useEffect, createRef, useState } from "react";
+import {findAverages} from './fp-helpers.js' 
 import Chart from "chart.js";
 import "../App.css";
 
-const BreakdownChart = () => {
+const BreakdownChart = (props) => {
   const chartRef = createRef();
+
+  const [visitAvgs, setVisitAvgs] = useState([])
+
+  useEffect(() => {
+    setVisitAvgs(findAverages(props.metadata));
+  }, []);
 
   useEffect(() => {
     const myChartRef = chartRef.current.getContext("2d");
+    
     // =====================
     // ===== BREAKDOWN =====
     // =====================
+
     new Chart(myChartRef, {
       type: "bubble",
       layout: {},
       data: {
-        datasets: [
-          {
-            label: "Start",
-            data: [
-              {
-                x: 0,
-                y: 10,
-                r: 0,
-              },
-            ],
-            backgroundColor: "#ff6384",
-            hoverBackgroundColor: "#ff6384",
-          },
-          {
-            label: "Den",
-            data: [
-              {
-                x: 6,
-                y: 0,
-                r: 10,
-              },
-            ],
-            backgroundColor: "rgba(255, 99, 132, 0.7)",
-            hoverBackgroundColor: "#ff6384",
-          },
-          {
-            label: "Desk",
-            data: [
-              {
-                x: 8.5,
-                y: 8.5,
-                r: 30,
-              },
-            ],
-            backgroundColor: "rgba(255, 99, 132, 0.7)",
-            hoverBackgroundColor: "#ff6384",
-          },
-          {
-            label: "Bedroom",
-            data: [
-              {
-                x: 8,
-                y: 4,
-                r: 10,
-              },
-            ],
-            backgroundColor: "rgba(255, 99, 132, 0.7)",
-            hoverBackgroundColor: "#ff6384",
-          },
-          {
-            label: "End",
-            data: [
-              {
-                x: 10,
-                y: 0,
-                r: 0,
-              },
-            ],
-            backgroundColor: "#ff6384",
-            hoverBackgroundColor: "#ff6384",
-          },
-        ],
+        datasets: visitAvgs,
       },
       options: {
         onClick: (event) => {
-          console.log(event);
+          //console.log(event);
         },
         scales: {
           xAxes: [

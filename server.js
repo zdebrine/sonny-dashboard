@@ -35,10 +35,36 @@ app.get("/locations", (req, res) => {
   );
 });
 
+app.get("/visits/:place_id", (req, res) => {
+  if (req.params.place_id !== 'ALL') {
+    pool.query(`SELECT * FROM visits WHERE place_id = '${req.params.place_id}' AND event = 'Location Event - Enter' ORDER BY time DESC LIMIT 200`, (err, data) => {
+      if (err) {
+        console.log('Error getting visit data for one location');
+        res.send();
+      } else {
+        res.send(data);
+      }
+    });
+  } else {
+    pool.query(`SELECT * FROM visits WHERE event = 'Location Event - Enter' ORDER BY time DESC LIMIT 200`, (err, data) => {
+      if (err) {
+        console.log('Error getting visit data for one location');
+        res.send();
+      } else {
+        res.send(data);
+      }
+    });
+  }
+});
+
 app.post("/locations", (req, res) => {
   console.log(req.body);
   const body = req.body;
-  let placeId = body.properties.beaconName;
+  if (body.properties.beaconName) {
+    var placeId = body.properties.beaconName;
+  } else {
+    var placeId = body.properties.geofenceID;
+  }
   let time = body.originalTimestamp;
   let name = body.context.traits.name;
   let event = body.event;
@@ -55,6 +81,9 @@ app.post("/locations", (req, res) => {
     }
   );
 });
+
+// POST REQUEST FOR ADDING BEACON
+// UPDATES EDDYSTONE OR RUUVI BEACON NICKNAME AND COORDINATES IF IN DATABASE, OTHERWISE ADDS NEW BEACON
 
 app.post("/sensor", (req, res) => {
   console.log(req.body);

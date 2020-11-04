@@ -22,7 +22,7 @@ const MarauderChart = (props) => {
 
   useEffect(() => {
     if (zakPlaceId === '4385395b88eb3dc1206d000000000000' && zakHere === true) {
-      setLocation([9, 11.5]);
+      setLocation([9, 10.5]);
     } 
   }, [zakHere]);
 
@@ -97,7 +97,7 @@ const MarauderChart = (props) => {
       },
       options: {
         onClick: (event) => {
-          console.log(event);
+          //console.log(event);
         },
         scales: {
           xAxes: [

@@ -5,13 +5,18 @@ import axios from "axios";
 import BubbleChart from "./BreakdownChart.jsx";
 import MarauderChart from "./MarauderChart.jsx";
 import ClimateChart from "./ClimateChart.jsx";
-import converter from '../SensorData/sensorHelpers.js';
+import converter from "../SensorData/sensorHelpers.js";
 
 const FloorplanCard = ({ activeToggle }) => {
   const [placeId, setPlaceId] = useState("");
   const [event, setEvent] = useState(false);
   const [data, setData] = useState([]);
   const [sensorReadings, setSensorReadings] = useState([]);
+  const [metadata, setMetadata] = useState(null);
+
+  // ============================
+  // == GET LATEST LOCATION DATA
+  // ============================
 
   useEffect(() => {
     (async () => {
@@ -27,6 +32,10 @@ const FloorplanCard = ({ activeToggle }) => {
     })();
   }, []);
 
+  // =========================
+  // == GET ALL SENSOR DATA
+  // =========================
+
   useEffect(() => {
     (async () => {
       try {
@@ -38,6 +47,25 @@ const FloorplanCard = ({ activeToggle }) => {
     })();
   }, []);
 
+  // =========================
+  // == GET ALL LOCATION DATA
+  // =========================
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const visitData = await axios.get("/visits/ALL");
+        setMetadata(visitData.data.rows);
+      } catch (err) {
+        console.log("Error getting visit info", err);
+      }
+    })();
+  }, []);
+
+  // =========================
+  // == CONVERT SENSOR DATA
+  // =========================
+
   useEffect(() => {
     setSensorReadings(converter(data));
   }, [data]);
@@ -47,7 +75,11 @@ const FloorplanCard = ({ activeToggle }) => {
       <Grid item xs={12}>
         <div className="py-1">
           {activeToggle === "breakdown" ? (
-            <BubbleChart />
+            metadata !== null ? (
+              <BubbleChart metadata={metadata} />
+            ) : (
+              <div> FETCHING DATA </div>
+            )
           ) : activeToggle === "marauder" ? (
             <MarauderChart placeId={placeId} event={event} />
           ) : (
