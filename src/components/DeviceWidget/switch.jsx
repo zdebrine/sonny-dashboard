@@ -79,6 +79,7 @@ const DeviceSwitch = (props) => {
     <div className="p-2">
       <div className="pt-2">
         <LargeSwitch
+          className="widget"
           checked={state.checkedB}
           onChange={handleChange}
           color="primary"

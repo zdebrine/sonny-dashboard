@@ -10,11 +10,12 @@ import {convertSensor} from './fp-helpers.js';
 const ClimateChart = (props) => {
   const chartRef = createRef();
 
-  const [sensorData, setSensorData] = useState(props.data);
+  const [sensorData, setSensorData] = useState([]);
 
   useEffect(() => {
-    setSensorData(convertSensor(sensorData));
-  }, [props.data]);
+    console.log('data', sensorData);
+    setSensorData(convertSensor(props.data));
+  }, []);
   
 
   useEffect(() => {
@@ -27,7 +28,7 @@ const ClimateChart = (props) => {
       },
       options: {
         onClick: (event) => {
-          console.log(event);
+          //console.log(event);
         },
         scales: {
           xAxes: [

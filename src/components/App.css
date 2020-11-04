@@ -3,6 +3,7 @@
 .App {
   text-align: center;
   background-color: #02060e;
+  cursor: none;
 }
 ::-webkit-scrollbar {
   width: 0px;  /* Remove scrollbar space */
@@ -56,25 +57,30 @@
 
 body {
   background-color: #02060e;
+  cursor: none;
 }
 
 p {
-  color: #ffffff
+  color: #ffffff;
+  cursor: none;
 }
 
 h1 {
   font-family: 'Roboto Mono', monospace;
   color: #F50057;
+  cursor: none;
 }
 
 h2 {
   font-family: 'Roboto Mono', monospace;
   color: #ffffff;
+  cursor: none;
 }
 
 #myChart {
   background-repeat: no-repeat;
   background-size: cover;
+  cursor: none;
 }
 
 
@@ -82,6 +88,7 @@ h2 {
   background-color: #02060e;
   height: 100%;
   margin-bottom: 20px;
+  cursor: none;
 }
 
 .floorplan-card {
@@ -89,6 +96,7 @@ h2 {
   background-repeat: no-repeat, repeat;
   background-size: cover;
   height: 100%;
+  cursor: none;
 }
 
 .sidebar {
@@ -98,7 +106,8 @@ h2 {
   height: 200%;
   overflow: hidden;
   margin-bottom: -5000px; /* any large number will do */
-  padding-bottom: 5000px; 
+  padding-bottom: 5000px;
+  cursor: none; 
 }
 
 .device-card {
@@ -108,6 +117,7 @@ h2 {
   color: #292929;
   text-align: left;
   border-radius: 25px;
+  cursor: none;
 }
 
 .device-switch {
@@ -116,12 +126,18 @@ h2 {
   color: #000000;
   text-align: left;
   border-radius: 100%;
+  cursor: none;
 }
 
 .widgets {
   transform: translatey(0px);
   animation: float 6s ease-in-out infinite;
   height: 80%;
+  cursor: none;
+}
+
+.widget {
+  cursor: none;
 }
 
 .artwork {
@@ -130,12 +146,14 @@ h2 {
 
   width: 100%;
   height: 75%;
+  cursor: none;
 }
 
 .simple-keyboard {
   max-width: 100%;
   align-items: center;
   color: #FF0000;
+  cursor: none;
 }
 
 .themed-digital-clock {
@@ -143,6 +161,7 @@ h2 {
   align-items: center;
   color: #FF0000;
   justify-content: center;
+  cursor: none;
 }
 
 /* =================== */
@@ -151,6 +170,7 @@ h2 {
 
 .toggled {
   padding-left: 0px;
+  cursor: none;
 }
 
 .btn.btn-simple,
@@ -602,4 +622,5 @@ fieldset[disabled]
   background-position: right;
   background-color: #02060e;
   background-repeat: no-repeat;
+  cursor: crosshair;
 }

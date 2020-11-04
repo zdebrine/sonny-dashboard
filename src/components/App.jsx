@@ -70,7 +70,7 @@ const  App = () => {
     <div className="App">
       {view === "widgetView" ? (
         <section>
-          
+
           {/* Clock widget */}
 
           <Grid container direction="row" className="widgets py-1">
@@ -82,7 +82,7 @@ const  App = () => {
 
             {/* Device widget */}
 
-            <Grid item xs={4} className="py-5">
+            <Grid item xs={4} className="py-5 widget">
               <IconButton color="secondary" onClick={setDeviceView}>
                 <BubbleChartIcon name="deviceView" style={{ fontSize: 100 }} />
               </IconButton>
@@ -90,7 +90,7 @@ const  App = () => {
 
             {/* Map widget */}
 
-            <Grid item xs={4} className="py-5">
+            <Grid item xs={4} className="py-5 widget">
               <IconButton color="secondary" onClick={setMapView}>
                 <StreetviewIcon name="mapView" style={{ fontSize: 100 }} />
               </IconButton>
@@ -98,7 +98,7 @@ const  App = () => {
 
             {/* Temp widget */}
 
-            <Grid item xs={4} className="py-5">
+            <Grid item xs={4} className="py-5 widget">
               <IconButton color="secondary" onClick={setSensorView}>
                 <AcUnitIcon name="sensorView" style={{ fontSize: 100 }} />
               </IconButton>
@@ -106,7 +106,7 @@ const  App = () => {
 
             {/* Art widget */}
 
-            <Grid item xs={4} className="py-5">
+            <Grid item xs={4} className="py-5 widget">
               <IconButton color="secondary" onClick={setArtView}>
                 <SpaIcon name="artView" style={{ fontSize: 100 }} />
               </IconButton>
@@ -114,7 +114,7 @@ const  App = () => {
 
             {/* Settings widget */}
 
-            <Grid item xs={4} className="py-5">
+            <Grid item xs={4} className="py-5 widget">
               <IconButton color="secondary" onClick={setSettingsView}>
                 <SettingsIcon name="settingsView" style={{ fontSize: 100 }} />
               </IconButton>

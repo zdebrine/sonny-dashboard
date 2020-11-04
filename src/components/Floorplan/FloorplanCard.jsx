@@ -19,7 +19,6 @@ const FloorplanCard = ({ activeToggle }) => {
         const userLocation = await axios.get(
           "http://ec2-3-101-81-119.us-west-1.compute.amazonaws.com/locations"
         );
-        console.log(userLocation);
         setPlaceId(userLocation.data.rows[0].place_id);
         setEvent(userLocation.data.rows[0].event);
       } catch (err) {
@@ -33,7 +32,6 @@ const FloorplanCard = ({ activeToggle }) => {
       try {
         const response = await axios.get("/sensor");
         setData(response.data.rows);
-        console.log(response);
       } catch (err) {
         console.log("Error getting sensor data", err);
       }
