@@ -2,9 +2,9 @@ import React, { useEffect, createRef } from 'react'
 import Chart from "chart.js";
 import '../../App.css';
 
-const TempuratureChart = () => {
+const TempuratureChart = (props) => {
 
-    const temp = 70;
+    const temp = props.temp;
     let shade;
 
     if (temp > 65 && temp < 79) {
@@ -140,7 +140,7 @@ const TempuratureChart = () => {
 
 
     return (
-        <div>
+        <div className="py-5">
             <canvas
                 id="tempChart"
                 ref={ctx}

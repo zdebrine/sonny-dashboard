@@ -1,13 +1,21 @@
-import React, { useEffect, createRef } from "react";
+import React, { useEffect, createRef, useState } from "react";
 import Chart from "chart.js";
 import "../App.css";
+import {convertSensor} from './fp-helpers.js';
 
 // =====================
 // ===== CLIMATE ======
 // =====================
 
-const ClimateChart = () => {
+const ClimateChart = (props) => {
   const chartRef = createRef();
+
+  const [sensorData, setSensorData] = useState(props.data);
+
+  useEffect(() => {
+    setSensorData(convertSensor(sensorData));
+  }, [props.data]);
+  
 
   useEffect(() => {
     const myChartRef = chartRef.current.getContext("2d");
@@ -15,80 +23,7 @@ const ClimateChart = () => {
       type: "bubble",
       layout: {},
       data: {
-        datasets: [
-          {
-            label: "Start",
-            data: [
-              {
-                x: 0,
-                y: 12,
-                r: 0,
-              },
-            ],
-            backgroundColor: "#ff6384",
-            hoverBackgroundColor: "#ff6384",
-          },
-          {
-            label: "Outside",
-            data: [
-              {
-                x: 3.3,
-                y: 10,
-                r: 200,
-              },
-            ],
-            backgroundColor: "rgba(29, 140, 248, 0.7)",
-            hoverBackgroundColor: "#1d8cf8",
-          },
-          {
-            label: "Office",
-            data: [
-              {
-                x: 8.5,
-                y: 9.5,
-                r: 100,
-              },
-            ],
-            backgroundColor: "rgba(0, 242, 195, 0.7)",
-            hoverBackgroundColor: "#00f2c3",
-          },
-          {
-            label: "Bedroom",
-            data: [
-              {
-                x: 8.5,
-                y: 2,
-                r: 70,
-              },
-            ],
-            backgroundColor: "rgba(255, 141, 114, 0.7)",
-            hoverBackgroundColor: "#ff8d72",
-          },
-          {
-            label: "Den",
-            data: [
-              {
-                x: 5.5,
-                y: 2,
-                r: 80,
-              },
-            ],
-            backgroundColor: "rgba(255, 141, 114, 0.7)",
-            hoverBackgroundColor: "#ff8d72",
-          },
-          {
-            label: "End",
-            data: [
-              {
-                x: 10,
-                y: 0,
-                r: 0,
-              },
-            ],
-            backgroundColor: "#1d8cf8",
-            hoverBackgroundColor: "#1d8cf8",
-          },
-        ],
+        datasets: sensorData,
       },
       options: {
         onClick: (event) => {

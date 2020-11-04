@@ -69,17 +69,16 @@ app.post("/sensor", (req, res) => {
   let battery = req.body.data.battery;
 
   pool.query(
-    `INSERT INTO "sensorData" (
-name, 
-   rssi, 
-   temp, 
-   humidity, 
-   pressure, 
-   accelerationx, 
-   accelerationy, 
-   accelerationz, 
-   batery 
-    ) VALUES ('${name}', ${rssi}, ${temp}, ${humidity}, ${pressure}, ${accx}, ${accy}, ${accz}, ${battery})`,
+    `UPDATE "sensorData"
+      SET rssi = ${rssi}, 
+      temp = ${temp}, 
+      humidity = ${humidity}, 
+      pressure = ${pressure}, 
+      accelerationx = ${accx}, 
+      accelerationy = ${accy}, 
+      accelerationz = ${accz}, 
+      batery = ${battery} 
+     WHERE name = '${name}'`,
     (err, data) => {
       if (err) {
         console.log("There was an error", err);
@@ -90,6 +89,16 @@ name,
       }
     }
   );
+});
+
+app.get("/sensor", (req, res) => {
+  pool.query(`SELECT * FROM "sensorData"`, (err, data) => {
+    if (err) {
+      res.status(404).send(err);
+    } else {
+      res.status(200).send(data);
+    }
+  })
 });
 
 app.listen(PORT, () => {

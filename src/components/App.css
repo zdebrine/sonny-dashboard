@@ -596,7 +596,7 @@ fieldset[disabled]
 /* == CLOCK WIDGET === */
 /* =================== */
 
-#clock {
+.dangerzone {
   align-items: center;
   background-image: url("https://i.ibb.co/SBRH3Yc/archer-and-the-danger-zone-by-arewolf-d7ip1u1-fullview.png");
   background-position: right;

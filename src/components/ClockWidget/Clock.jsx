@@ -22,6 +22,8 @@ const ClockWidget = () => {
           style={styles.darkTheme}
         />
       </Grid>
+      <Grid item xs={6} className="p-3 dangerzone">
+      </Grid>
     </Grid>
   );
 };
