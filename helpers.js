@@ -5,7 +5,7 @@ const helpers = {
       if (command === "turnOn") {
       axios
         .post(
-          "https://maker.ifttt.com/trigger/light_on/with/key/byiK7l157RIffiQuQzBFsr",
+          "https://maker.ifttt.com/trigger/light_on/with/key/dgBh4dmEyAY3T0mL5L1rk0",
           {
             headers: {
               "Access-Control-Allow-Origin": "*",
@@ -18,7 +18,7 @@ const helpers = {
     } else {
         axios
         .post(
-          "https://maker.ifttt.com/trigger/light_on/with/key/byiK7l157RIffiQuQzBFsr",
+          "https://maker.ifttt.com/trigger/light_on/with/key/dgBh4dmEyAY3T0mL5L1rk0",
           {
             headers: {
               "Access-Control-Allow-Origin": "*",
